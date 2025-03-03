@@ -1,0 +1,46 @@
+.footer {
+  padding: 50px;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.footer-info {
+  color: #9d9b9b;
+  font-size: 0.9rem;
+}
+
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.info-row span {
+  position: relative;
+}
+
+.info-row span::after {
+  content: '|';
+  position: absolute;
+  right: -12px;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .info-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .info-row span:not(:last-child)::after {
+    display: none;
+  }
+}

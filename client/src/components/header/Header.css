@@ -1,0 +1,188 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  opacity: 0;
+  padding: 15px 50px;
+}
+
+.header.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.header-container::before {
+  position: absolute;
+  top: 80px;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  transition: all 1s;
+  opacity: 0;
+}
+
+.header-container:hover::before {
+  opacity: 1;
+}
+
+/* 스크롤된 상태에서의 배경색 */
+.header.scrolled {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  width: 120px;
+}
+
+.main-nav {
+  width: 100%;
+}
+
+.main-nav::before {
+  position: absolute;
+  top: 80px;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  opacity: 0;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 230px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  position: relative;
+  cursor: pointer;
+  font-weight: 400;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.menu-item span {
+  color: white;
+}
+
+.header.scrolled .menu-item span {
+  color: white;
+}
+
+/* 서브메뉴 스타일 */
+.sub-items-list {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(50%);
+  list-style: none;
+  padding-top: 10px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  width: 333px;
+}
+
+/* 서브메뉴 구분선 (왼쪽) */
+.sub-items-list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 0;
+  background-color: #ddd;
+  transition: height 0.8s ease; /* 높이 트랜지션 추가 */
+}
+
+/* 서브메뉴 구분선 (오른쪽) */
+.sub-items-list::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 0;
+  background-color: #ddd;
+  transition: height 0.8s ease; /* 높이 트랜지션 추가 */
+}
+
+/* 호버 시 서브메뉴 구분선 표시 */
+.header:hover .sub-items-list::before,
+.header:hover .sub-items-list::after {
+  height: 220px; /* 호버 시 높이 100%로 변경 */
+}
+
+.header:hover .sub-items-list {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+
+.sub-items-list li {
+  text-align: center;
+  padding: 10px 0;
+  white-space: nowrap;
+}
+
+.sub-items-list a {
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+  display: block;
+  padding: 3px 6px;
+}
+
+.sub-items-list a:hover {
+  color: #666;
+}
+
+.contact-button button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 15px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.header.scrolled .contact-button button {
+  border-color: white;
+  color: white;
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: white;
+  z-index: -1;
+}
