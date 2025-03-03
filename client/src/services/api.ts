@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL;
+const API_BASE_URL = process.env.CLIENT_REACT_APP_API_URL;
 
 // 게시글 목록 조회
 export const fetchPosts = async () => {

@@ -3,7 +3,7 @@ const cors = require('cors');
 const boardRoutes = require('./routes/board');
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.SERVER_PORT;
 
 // 미들웨어
 app.use(cors());
