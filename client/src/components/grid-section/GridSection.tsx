@@ -117,7 +117,7 @@ const GridSection: React.FC = () => {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [charsRef]);
 
   // 그리드 아이템 렌더링 함수
   const renderGridItem = (item: GridItem) => {

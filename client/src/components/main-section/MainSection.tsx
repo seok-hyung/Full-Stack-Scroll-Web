@@ -14,7 +14,7 @@ const MainSection: React.FC = () => {
       duration: 1,
       ease: 'power2.out',
     });
-  }, []);
+  }, [charsRef]);
 
   return (
     <section className="main-section">

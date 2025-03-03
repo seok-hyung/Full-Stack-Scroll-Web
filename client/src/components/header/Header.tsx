@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import './Header.css';
@@ -21,33 +21,36 @@ const Header: React.FC = () => {
   const contactButtonRef = useRef<HTMLButtonElement>(null);
   const animationRef = useRef<gsap.core.Timeline | null>(null);
 
-  const menuItems: MenuItem[] = [
-    {
-      title: 'WHO WE ARE',
-      subItems: [
-        { name: 'CAIT VALUE', path: '/' },
-        { name: 'CEO 메시지', path: '/' },
-        { name: '연혁', path: '/' },
-      ],
-    },
-    {
-      title: 'WHAT WE CAN',
-      subItems: [
-        { name: '컨설팅부', path: '/' },
-        { name: '글로벌연구센터', path: '/' },
-        { name: '정책연구부', path: '/' },
-        { name: '기술개발부', path: '/' },
-      ],
-    },
-    {
-      title: 'WHAT WE DO',
-      subItems: [
-        { name: '사업실적', path: '/' },
-        { name: '발표논문', path: '/board/presentation' },
-        { name: 'NEWS', path: '/' },
-      ],
-    },
-  ];
+  const menuItems: MenuItem[] = useMemo(
+    () => [
+      {
+        title: 'WHO WE ARE',
+        subItems: [
+          { name: 'CAIT VALUE', path: '/' },
+          { name: 'CEO 메시지', path: '/' },
+          { name: '연혁', path: '/' },
+        ],
+      },
+      {
+        title: 'WHAT WE CAN',
+        subItems: [
+          { name: '컨설팅부', path: '/' },
+          { name: '글로벌연구센터', path: '/' },
+          { name: '정책연구부', path: '/' },
+          { name: '기술개발부', path: '/' },
+        ],
+      },
+      {
+        title: 'WHAT WE DO',
+        subItems: [
+          { name: '사업실적', path: '/' },
+          { name: '발표논문', path: '/board/presentation' },
+          { name: 'NEWS', path: '/' },
+        ],
+      },
+    ],
+    []
+  );
 
   // 초기 렌더링 지연 효과
   useEffect(() => {

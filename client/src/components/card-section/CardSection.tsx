@@ -91,7 +91,7 @@ const CardSection: React.FC = () => {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [charsRef]);
 
   const commonStyle = { style: { transform: 'translateY(20px)' } };
 

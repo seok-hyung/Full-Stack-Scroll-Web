@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './PerformanceSection.css';
@@ -23,13 +23,16 @@ const PerformanceSection: React.FC = () => {
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  const performanceImages: PerformanceImage[] = [
-    { id: 1, src: '/assets/1.png', alt: '이미지 1', speed: 0.5, width: '300px', height: '300px' },
-    { id: 5, src: '/assets/5.png', alt: '이미지 5', speed: 1.2, width: '400px', height: '400px' },
-    { id: 4, src: '/assets/4.png', alt: '이미지 4', speed: 2, width: '300px', height: '250px' },
-    { id: 3, src: '/assets/3.png', alt: '이미지 3', speed: 1.5, width: '300px', height: '400px' },
-    { id: 2, src: '/assets/2.png', alt: '이미지 2', speed: 1.7, width: '400px', height: '300px' },
-  ];
+  const performanceImages: PerformanceImage[] = useMemo(
+    () => [
+      { id: 1, src: '/assets/1.png', alt: '이미지 1', speed: 0.5, width: '300px', height: '300px' },
+      { id: 5, src: '/assets/5.png', alt: '이미지 5', speed: 1.2, width: '400px', height: '400px' },
+      { id: 4, src: '/assets/4.png', alt: '이미지 4', speed: 2, width: '300px', height: '250px' },
+      { id: 3, src: '/assets/3.png', alt: '이미지 3', speed: 1.5, width: '300px', height: '400px' },
+      { id: 2, src: '/assets/2.png', alt: '이미지 2', speed: 1.7, width: '400px', height: '300px' },
+    ],
+    []
+  );
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -171,7 +174,7 @@ const PerformanceSection: React.FC = () => {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [performanceImages]);
 
   return (
     <section className="performance-section" ref={sectionRef}>
