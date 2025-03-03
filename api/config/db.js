@@ -19,7 +19,6 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  ssl: process.env.NODE_ENV === 'production' ? {} : undefined,
 });
 
 // 데이터베이스 연결 테스트
