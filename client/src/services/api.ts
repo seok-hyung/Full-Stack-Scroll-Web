@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // 배포 환경에 따른 API URL 설정
-const API_BASE_URL = process.env.NODE_ENV === 'production' ? '/api' : process.env.CLIENT_REACT_APP_API_URL;
+const API_BASE_URL = process.env.NODE_ENV === 'production' ? '/api' : process.env.REACT_APP_API_URL;
 
 // 게시글 목록 조회
 export const fetchPosts = async () => {
