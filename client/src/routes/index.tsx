@@ -16,6 +16,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/board/presentation/edit/:id" element={<BoardFormPage />} />
       <Route path="/board/presentation/:id" element={<BoardDetailPage />} />
       <Route path="/board/presentation" element={<BoardListPage />} />
+      <Route path="/*" element={<HomePage />} />
     </Routes>
   );
 };
